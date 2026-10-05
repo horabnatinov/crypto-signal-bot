@@ -19,9 +19,9 @@ def check_signal(df, symbol):
         return None
 
     if rsi_value < RSI_OVERSOLD:
-        return f"🟢 {symbol}: RSI = {rsi_value:.2f} — Перепроданість (oversold)"
+        return f"🟢 {symbol}: RSI = {rsi_value:.2f} — Oversold"
     elif rsi_value > RSI_OVERBOUGHT:
-        return f"🔴 {symbol}: RSI = {rsi_value:.2f} — Перекупленість (overbought)"
+        return f"🔴 {symbol}: RSI = {rsi_value:.2f} — Overbought"
 
     return None
 
@@ -41,6 +41,6 @@ if __name__ == "__main__":
             if signal:
                 print(signal)
             else:
-                print(f"{symbol}: сигналу немає (RSI у нормі)")
+                print(f"{symbol}: no signal (RSI in normal range)")
 
     asyncio.run(test())

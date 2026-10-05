@@ -6,7 +6,7 @@ from telegram_notifier import send_alert
 
 
 async def run_once():
-    print("Отримуємо дані...")
+    print("Fetching data...")
     data = await fetch_all_symbols()
 
     for symbol, df in data.items():
@@ -14,10 +14,10 @@ async def run_once():
         signal = check_signal(df_with_indicators, symbol)
 
         if signal:
-            print(f"Сигнал знайдено: {signal}")
+            print(f"Signal found: {signal}")
             await send_alert(signal)
         else:
-            print(f"{symbol}: без сигналу")
+            print(f"{symbol}: no signal")
 
 
 async def main_loop(interval_seconds=900):
@@ -25,9 +25,9 @@ async def main_loop(interval_seconds=900):
         try:
             await run_once()
         except Exception as e:
-            print(f"Помилка під час перевірки: {e}")
+            print(f"Error during check: {e}")
 
-        print(f"Чекаємо {interval_seconds} секунд до наступної перевірки...")
+        print(f"Waiting {interval_seconds} seconds until next check...")
         await asyncio.sleep(interval_seconds)
 
 

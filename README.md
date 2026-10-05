@@ -80,16 +80,16 @@ Each module can be tested and understood independently. For example, swapping Bi
 ## Example output
 
 ```
-Отримуємо дані...
-BTC/USDT: без сигналу
-ETH/USDT: без сигналу
-Чекаємо 900 секунд до наступної перевірки...
+Fetching data...
+BTC/USDT: no signal
+ETH/USDT: no signal
+Waiting 900 seconds until next check...
 ```
 
 When RSI crosses a threshold, a message like this is sent to Telegram:
 
 ```
-🟢 BTC/USDT: RSI = 28.43 — Перепроданість (oversold)
+🟢 BTC/USDT: RSI = 28.43 — Oversold
 ```
 
 ## Possible future improvements
